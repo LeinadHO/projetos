@@ -1,10 +1,14 @@
 import customtkinter
 from tkinter import messagebox
 import pandas
+import os
 
 def verificar_login(usuario, senha):
+    caminho_pasta = os.path.dirname(os.path.abspath(__file__))
+    nome_arquivo = "usuarios.xlsx"
+    caminho_arquivo = os.path.join(caminho_pasta, nome_arquivo)
     try:
-        df = pandas.read_excel("usuarios.xlsx", engine="openpyxl")
+        df = pandas.read_excel(caminho_arquivo, engine="openpyxl")
         usuario = df[df["usuario"] == usuario]
         if not usuario.empty and usuario.iloc[0]["senha"] == senha:
             return True
@@ -38,7 +42,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Breno\Python\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Breno\Documents\GitHub\projetos\build\assets\frame0")
 
 
 def relative_to_assets(path: str) -> Path:
