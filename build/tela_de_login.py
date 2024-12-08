@@ -2,6 +2,7 @@ import customtkinter
 from tkinter import messagebox
 import pandas
 import os
+from pathlib import Path
 
 def verificar_login(usuario, senha):
     caminho_pasta = os.path.dirname(os.path.abspath(__file__))
@@ -40,9 +41,9 @@ from pathlib import Path
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
-
+BASE_PATH = Path("assets/frame0")
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Breno\Documents\GitHub\projetos\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / BASE_PATH
 
 
 def relative_to_assets(path: str) -> Path:
